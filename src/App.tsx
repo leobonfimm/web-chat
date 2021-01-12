@@ -1,7 +1,15 @@
 import React from 'react';
 
+import Chat from './pages/ChatPage';
+import GlobalStyle from './styles/global';
+
 const App: React.FC = () => {
-  return <h1>Hello World</h1>;
+  return (
+    <>
+      <Chat />
+      <GlobalStyle />
+    </>
+  );
 };
 
 export default App;
