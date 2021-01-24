@@ -13,7 +13,7 @@ export const Header = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  padding: 32px 0 0 0;
+  padding: 16px 0 0 0;
 `;
 
 export const Profile = styled.div`
@@ -38,6 +38,7 @@ export const Content = styled.div`
 
   div.search {
     display: flex;
+    width: 30%;
     max-width: 500px;
     align-items: center;
     margin-bottom: 10px;
@@ -87,7 +88,7 @@ export const Contacts = styled.div`
 
 export const Contact = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 
   > img {
     height: 60px;

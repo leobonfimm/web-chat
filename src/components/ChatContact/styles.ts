@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-interface MessageReceivedProps {
+declare interface MessageReceivedProps {
   isPhoto: boolean;
 }
 
@@ -8,7 +8,7 @@ export const Container = styled.div`
   width: 80%;
   height: 100%;
   background: #5c4f82;
-  padding: 32px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -18,7 +18,10 @@ export const Container = styled.div`
 
 export const BodyMessage = styled.div`
   height: 100%;
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+
   ::-webkit-scrollbar {
     width: 8px;
   }
@@ -34,61 +37,66 @@ export const BodyMessage = styled.div`
 `;
 
 export const MessageReceived = styled.div<MessageReceivedProps>`
-  margin-right: auto;
-  margin-bottom: 4px;
   display: flex;
   align-items: center;
-  flex-direction: column;
-
-  ${props => css`
-    display: flex;
-    align-items: center;
-    > img {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-    }
-
-    span {
-      background: #4d426d;
-      padding: 16px;
-      border-radius: 10px;
-      margin-left: 10px;
-      margin-top: 10px;
-      word-break: break-all;
-    }
-  `}
 
   > img {
-    width: 64px;
-    height: 64px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
   }
 
+  ${props =>
+    !props.isPhoto &&
+    css`
+      content: '';
+      margin-left: 40px;
+    `}
+
   span {
     background: #4d426d;
+    margin-bottom: 4px;
+    margin-left: 4px;
     padding: 16px;
     border-radius: 10px;
-    margin-left: 10px;
-    margin-top: 10px;
+    max-width: 680px;
     word-break: break-all;
+    text-align: justify;
+  }
+
+  @media only screen and (max-width: 1500px) {
+    span {
+      max-width: 340px;
+    }
   }
 `;
 
 export const MeMessage = styled.div`
-  margin-left: auto;
-  text-align: right;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
 
   span {
     background: #efa985;
+    margin-bottom: 4px;
+    margin-right: 4px;
     padding: 16px;
     border-radius: 10px;
+    max-width: 680px;
+    text-align: justify;
+  }
+
+  @media only screen and (max-width: 1500px) {
+    span {
+      max-width: 340px;
+    }
   }
 `;
 
 export const SendMessage = styled.div`
   display: flex;
   align-items: center;
+  margin-top: 10px;
 
   > button {
     width: 50px;
