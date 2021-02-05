@@ -1,14 +1,15 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 
-import Chat from './pages/ChatPage';
+import Routes from './routes';
 import GlobalStyle from './styles/global';
 
 const App: React.FC = () => {
   return (
-    <>
-      <Chat />
+    <BrowserRouter>
+      <Routes />
       <GlobalStyle />
-    </>
+    </BrowserRouter>
   );
 };
 
